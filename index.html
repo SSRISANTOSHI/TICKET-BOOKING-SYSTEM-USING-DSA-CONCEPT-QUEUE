@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWings Airlines - Book Your Flight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <h1 class="animated-title">✈️ SkyWings Airlines</h1>
+            <p class="fade-in">Soar High, Dream Higher!</p>
+            <div class="brand-tagline fade-in">Your Wings to the World</div>
+        </header>
+
+        <div class="booking-section slide-up">
+            <h2 class="section-title">Book New Flight</h2>
+            <form id="bookingForm">
+                <select id="tripType" required>
+                    <option value="">Select Trip Type</option>
+                    <option value="oneway">One Way</option>
+                    <option value="roundtrip">Round Trip</option>
+                </select>
+                <input type="text" id="passengerName" placeholder="Passenger Name" required>
+                <input type="date" id="bookingDate" required>
+                
+                <div id="tripSegments">
+                    <!-- Flight segments will be dynamically added here -->
+                </div>
+                
+                <select id="seatClass" required>
+                    <option value="">Select Class</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="First">First Class</option>
+                </select>
+                
+                <div class="currency-toggle">
+                    <label>
+                        <input type="radio" name="currency" value="USD" checked> USD ($)
+                    </label>
+                    <label>
+                        <input type="radio" name="currency" value="INR"> INR (₹)
+                    </label>
+                </div>
+                
+                <div class="price-display">
+                    <span>Total Price: </span><span id="calculatedPrice">Select flight details</span>
+                </div>
+                
+                <button id="addSegmentBtn" type="button" style="display:none;">Add Another Flight</button>
+                <button type="submit">Book Flight</button>
+            </form>
+        </div>
+
+        <div class="controls slide-up">
+            <button id="processBtn" class="process-btn pulse-btn">Process Next Booking</button>
+            <button id="refreshBtn" class="refresh-btn pulse-btn">Refresh Queue</button>
+            <button id="viewAllBtn" class="view-all-btn">View All Stored Bookings</button>
+            <button id="downloadBtn" class="download-btn">Download Bookings File</button>
+        </div>
+
+        <div class="queue-section slide-up">
+            <h2 class="section-title">Flight Booking Queue</h2>
+            <div id="queueDisplay" class="queue-display">
+                <p class="empty-queue">No flight bookings in queue</p>
+            </div>
+        </div>
+
+        <div class="stats slide-up">
+            <div class="stat-item bounce-in">
+                <span class="stat-label">Bookings in Queue:</span>
+                <span id="queueCount" class="stat-value counter">0</span>
+            </div>
+            <div class="stat-item bounce-in">
+                <span class="stat-label">Next Flight ID:</span>
+                <span id="nextId" class="stat-value counter">1</span>
+            </div>
+            <div class="stat-item bounce-in">
+                <span class="stat-label">Total Revenue:</span>
+                <span id="totalRevenue" class="stat-value counter">$0 / ₹0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
